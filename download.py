@@ -6,8 +6,8 @@ from fmiopendata.wfs import download_stored_query
 
 def main():
     init_csv()
-    start_date = datetime.date(2024, 6, 1)
-    end_date = datetime.date(2024, 7, 1)
+    start_date = datetime.date(2024, 5, 20)
+    end_date = start_date + datetime.timedelta(weeks=2)
     dates = split_to_weeks(start_date, end_date)
     arg_list = format_args(dates)
     for args in arg_list:
@@ -58,6 +58,7 @@ def init_csv():
 
 def write_obs(obs):
     zipped_obs = zip(obs.times, obs.peak_current, obs.latitudes, obs.longitudes)
+    print(f"writing {len(obs.times)} lightnings\n")
 
     with open("lightnings.csv", "a", newline="") as file:
         writer = csv.writer(file)
