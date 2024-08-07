@@ -6,8 +6,8 @@ from fmiopendata.wfs import download_stored_query
 
 def main():
     init_csv()
-    start_date = datetime.date(2024, 5, 20)
-    end_date = start_date + datetime.timedelta(weeks=2)
+    start_date = datetime.date(2024, 5, 21)
+    end_date = start_date + datetime.timedelta(weeks=3)
     dates = split_to_weeks(start_date, end_date)
     arg_list = format_args(dates)
     for args in arg_list:
